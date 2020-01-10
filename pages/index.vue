@@ -3,9 +3,10 @@
     <div>
       <logo />
       <h1 class="title">
-        {{hello}}
-      </h1>  
+        {{title}}
+      </h1>
       <h2 class="subtitle">
+        My phenomenal Nuxt.js project
       </h2>
       <div class="links">
         <a
@@ -29,11 +30,11 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-import axios from 'axios'
+import axios from '~/plugins/axios' 
 export default {
-  async asyncData(){
-    const {data} = await axios.get(process.env.baseUrl);
-    return {hello: data}
+  async asyncData ({ params }) {
+    const { data } = await axios.get('/api')
+    return { title: data }
   },
   components: {
     Logo

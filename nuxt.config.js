@@ -1,12 +1,6 @@
 
-module.exports = {
+export default {
   mode: 'universal',
-  env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000/api'
-  },
-  server:{
-    port: process.env.PORT || 3000
-  },
   /*
   ** Headers of the page
   */
@@ -52,11 +46,14 @@ module.exports = {
   */
   build: {
     transpile: [/^element-ui/],
+    vendor: ['axios'],
     /*
     ** You can extend webpack config here
     */
     extend (config, ctx) {
     }
   },
-
+  serverMiddleware: [
+    '~/server/index.js',
+]
 }

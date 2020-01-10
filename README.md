@@ -1,6 +1,6 @@
 # mysqltomongo-front
 
-> My classy Nuxt.js project
+> My phenomenal Nuxt.js project
 
 ## Build Setup
 
