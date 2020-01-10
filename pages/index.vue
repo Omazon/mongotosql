@@ -6,7 +6,6 @@
         {{hello}}
       </h1>  
       <h2 class="subtitle">
-        My classy Nuxt.js project
       </h2>
       <div class="links">
         <a
@@ -33,7 +32,7 @@ import Logo from '~/components/Logo.vue'
 import axios from 'axios'
 export default {
   async asyncData(){
-    const {data} = await axios.get('/');
+    const {data} = await axios.get(process.env.baseUrl);
     return {hello: data}
   },
   components: {

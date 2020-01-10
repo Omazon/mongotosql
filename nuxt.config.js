@@ -1,11 +1,11 @@
 
 module.exports = {
   mode: 'universal',
-  axios: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000/api'
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000/api'
   },
   server:{
-    port: process.env.PORT || 8000
+    port: process.env.PORT || 3000
   },
   /*
   ** Headers of the page
