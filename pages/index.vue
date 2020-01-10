@@ -33,7 +33,7 @@ import Logo from '~/components/Logo.vue'
 import axios from 'axios'
 export default {
   async asyncData(){
-    const {data} = await axios.get('http://localhost:3000/api');
+    const {data} = await axios.get('/');
     return {hello: data}
   },
   components: {
