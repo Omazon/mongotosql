@@ -3,7 +3,7 @@
     <div>
       <logo />
       <h1 class="title">
-        mysqltomongo-front
+        {{hello}}
       </h1>
       <h2 class="subtitle">
         My classy Nuxt.js project
@@ -30,8 +30,12 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-
+import axios from 'axios'
 export default {
+  async asyncData(){
+    const {data} = await axios.get('http://localhost:3000/api');
+    return {hello: data}
+  },
   components: {
     Logo
   }
