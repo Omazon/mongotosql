@@ -4,6 +4,7 @@
       <logo />
       <h1 class="title">
         {{hello}}
+      </h1>  
       <h2 class="subtitle">
         My classy Nuxt.js project
       </h2>
@@ -32,7 +33,7 @@ import Logo from '~/components/Logo.vue'
 import axios from 'axios'
 export default {
   async asyncData(){
-    const {data} = await axios.get('https://localhost:3000/api');
+    const {data} = await axios.get('http://localhost:3000/api');
     return {hello: data}
   },
   components: {

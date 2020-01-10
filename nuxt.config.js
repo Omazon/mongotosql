@@ -52,7 +52,5 @@ module.exports = {
     extend (config, ctx) {
     }
   },
-  serverMiddleware:[
-    '@/server/index.js'
-  ]
+
 }
