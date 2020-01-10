@@ -12,9 +12,11 @@
   },
   "dependencies": {
     "axios": "^0.19.1",
+    "body-parser": "^1.19.0",
     "element-ui": "^2.4.11",
     "express": "^4.17.1",
+    "mongoose": "^5.8.6",
+    "mysql": "^2.17.1",
     "nuxt": "^2.0.0"
-  },
-  "devDependencies": {}
+  }
 }
