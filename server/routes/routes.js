@@ -34,30 +34,38 @@ app.get('/save', (req, res) => {
     })
 });
 
-app.get('/mysql',(req, res) => {
+app.post('/mysql',(req, res) => {
     var connection = mysql.createConnection({
-    host     : 'sql10.freesqldatabase.com',
-    user     : 'sql10318391',
-    password : 'swlNQKIwFm',
-    database: 'sql10318391'
+    // host     : 'sql10.freesqldatabase.com',
+    // user     : 'sql10318391',
+    // password : 'swlNQKIwFm',
+    // database: 'sql10318391'
+    host     : req.body.host,
+    user     : req.body.user,
+    password : req.body.password,
+    database : req.body.database
     });
-
     connection.connect();
 
     connection.query('select * from agents', function(err, rows, fields) {
-        if (err) throw err;
-        let agent = new Agent();
-        agent.collection.insertMany(rows,(err, usuarioDB)=>{
-            if(err){
-                res.status(400).json({
-                    ok: false,
-                    err
-                })
-            }
-            res.json({
-                ok: true,
+        if(err){
+            res.status(500).json({
+                err
             })
-        })
+        } else {
+            let agent = new Agent();
+            agent.collection.insertMany (rows,(err, usuarioDB)=>{
+                if(err){
+                    res.status(500).json({
+                        err
+                    })
+                }else{
+                    res.json({
+                        message: "Data migrated successfully"
+                    })
+                }
+            })
+        }
     });
 
     connection.end();
